@@ -1,6 +1,6 @@
 require 'mkmf'
 
-prefixes = %w(/home/travis/build/caring/dir.caring.com/cache/libgraphqlparser-files/usr/local /usr /usr/local)
+prefixes = %w(ENV["LD_LIBRARY_PATH"] /usr /usr/local)
 if prefix = prefixes.find{ |prefix| Dir["#{prefix}/lib/libgraphqlparser*"].first }
   dir_config('graphql', "#{prefix}/include/graphqlparser", "#{prefix}/lib")
 else
